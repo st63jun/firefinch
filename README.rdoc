@@ -1,19 +1,16 @@
-= firefinch - DESCRIBE YOUR GEM
+= firefinch - A TeX preprocessor with Ruby
 
-Author::  YOUR NAME (YOUR EMAIL)
-Copyright:: Copyright (c) 2013 YOUR NAME
+Author::  Jun SAITO (jsaito@xopowo.info)
+Copyright:: Copyright (c) 2013 Jun SAITO
 
 
 License:: mit, see LICENSE.txt
 
 
 
-DESCRIBE YOUR GEM HERE
-
 == Links
 
-* {Source on Github}[LINK TO GITHUB]
-* RDoc[LINK TO RDOC.INFO]
+* {Source on Github}[https://github.com/st63jun/firefinch]
 
 == Install
 
