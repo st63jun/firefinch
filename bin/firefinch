@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'methadone'
+require 'firefinch'
+
+class App
+  include Methadone::Main
+  include Methadone::CLILogging
+
+  main do |filename|
+    conf = options[:c] ? options[:c] : 'pp.rb'
+    if File.exist? conf
+      eval(open(conf, 'r').read)
+      pp = Firefinch::Preprocessor.new(PPConfig.new)
+    else
+      pp = Firefinch::Preprocessor.new(Object.new)
+    end
+    out = pp.compile(open(filename).read)
+    if options[:o]
+      open(options[:o], 'w').write(out)
+    else
+      puts out
+    end
+  end
+
+  description "A TeX preprocessor with Ruby"
+
+  on("-c config", "--conf", "Configuration file")
+  on("-o filename", "--out", "Output file")
+  arg :erbfile
+
+  version Firefinch::VERSION
+
+  use_log_level_option
+
+  go!
+end
